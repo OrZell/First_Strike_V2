@@ -23,8 +23,8 @@
             set { _Status = value; }
         }
 
-        private List<Weapon> _Weapons;
-        public List<Weapon> Weapons
+        private List<string> _Weapons;
+        public List<string> Weapons
         {
             get { return _Weapons; }
             set { _Weapons = value; }
@@ -35,7 +35,7 @@
             this._Name = name;
             this._Rank = rank;
             this._Status = true;
-            this._Weapons = new List<Weapon>();
+            this._Weapons = new List<string>();
         }
     }
 }
