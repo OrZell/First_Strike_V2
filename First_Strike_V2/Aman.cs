@@ -14,7 +14,7 @@
 
         public void CreateReport(Terrorist terrorist, string place, string dateandtime)
         {
-            Report report = new Report(terrorist, place, dateandtime);
+            Report report = new Report(terrorist, place);
             this.Reports.Add(report);
 
             if (!this.TerroristsAndReports.ContainsKey(terrorist))
