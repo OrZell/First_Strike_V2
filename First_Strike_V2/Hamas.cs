@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace First_Strike_V2.Models
+﻿namespace First_Strike_V2.Models
 {
-    public class Hamas
+    public class TerrorOrganization
     {
         private string _Date;
         public string Date
@@ -29,7 +23,7 @@ namespace First_Strike_V2.Models
             set { _TerroristsMembers = value; }
         }
 
-        public Hamas(string date)
+        public TerrorOrganization(string date)
         {
             this._Date = date;
         }
