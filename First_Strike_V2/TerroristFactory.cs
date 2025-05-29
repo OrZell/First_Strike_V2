@@ -2,16 +2,11 @@
 {
     public class TerroristFactory
     {
-        public class TerroristsFactory
-        {
-            public List<Terrorist> ListOfTerroristByFactory;
+        public List<Terrorist> Terrorists;
 
-            public Terrorist CreateTerrorist(string name, int rank)
-            {
-                Terrorist trr = new Terrorist(name, rank);
-                ListOfTerroristByFactory.Add(trr);
-                return trr;
-            }
+        public TerroristFactory()
+        {
+            this.Terrorists = new List<Terrorist>();
         }
     }
 }
