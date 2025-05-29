@@ -37,5 +37,13 @@
             this._Status = true;
             this._Weapons = new List<string>();
         }
+
+        public string Info()
+        {
+            return $"" +
+                $"Name: {this.Name}\n" +
+                $"Rank: {this.Rank}\n" +
+                $"Status: {this.Status}";
+        }
     }
 }
