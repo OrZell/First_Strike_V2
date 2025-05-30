@@ -5,25 +5,31 @@
         public List<Report> Reports;
         public Dictionary<Terrorist, List<Report>> TerroristsAndReports;
         public Dictionary<Terrorist, int> TerroristsAndReportsNums;
+        public TerrorOrganization TrrOrg;
+        public ReportFactory RepFactor;
 
-        public Aman()
+        public Aman(TerrorOrganization trrOrg)
         {
             this.Reports = new List<Report>();
             this.TerroristsAndReports = new Dictionary<Terrorist, List<Report>>();
+            this.TrrOrg = trrOrg;
+            this.RepFactor = new ReportFactory(this.TrrOrg);
         }
 
-        public void CreateReport(Terrorist terrorist, string place, string dateandtime)
+        public void CreateReport(Terrorist terrorist, string place)
         {
             Report report = new Report(terrorist, place);
             this.Reports.Add(report);
 
-            if (!this.TerroristsAndReports.ContainsKey(terrorist))
-            {
-                this.TerroristsAndReports.Add(terrorist, new List<Report>());
-                this.TerroristsAndReportsNums.Add(terrorist, 0);
-            }
-            this.TerroristsAndReports[terrorist].Add(report);
-            this.TerroristsAndReportsNums[terrorist]++;
+            CheckAndApplyTerroristReports(report);
+        }
+
+        public void CreateRandomValuesReport()
+        {
+            Report report = this.RepFactor.CreateRandoValuesReport();
+            this.Reports.Add(report);
+
+            CheckAndApplyTerroristReports(report);
         }
 
         public List<Terrorist> MostReportedTerrorists()
@@ -45,6 +51,17 @@
                 }
             }
             return trrs;
+        }
+
+        private void CheckAndApplyTerroristReports(Report report)
+        {
+            if (!this.TerroristsAndReports.ContainsKey(report.TerroristPerson))
+            {
+                this.TerroristsAndReports.Add(report.TerroristPerson, new List<Report>());
+                this.TerroristsAndReportsNums.Add(report.TerroristPerson, 0);
+            }
+            this.TerroristsAndReports[report.TerroristPerson].Add(report);
+            this.TerroristsAndReportsNums[report.TerroristPerson]++;
         }
     }
 }

@@ -15,7 +15,7 @@
             List<string> weapons = new List<string>();
 
 
-            int ManyWeapons = Rand.Next(Data.Weapons.Count);
+            int ManyWeapons = Rand.Next(1, Data.Weapons.Count);
 
             string name = Data.Names[Rand.Next(Data.Names.Count)];
             int rank = Rand.Next(6);

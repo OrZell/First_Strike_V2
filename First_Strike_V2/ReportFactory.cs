@@ -3,16 +3,41 @@
     public class ReportFactory
     {
         public List<Report> reports;
-        public ReportFactory()
+        public TerrorOrganization TrrOrg;
+        public ReportFactory(TerrorOrganization trrOrg)
         {
             this.reports = new List<Report>();
+            this.TrrOrg = trrOrg;
         }
 
-        public Report CreateRandoValuesReport(TerrorOrganization trrOrg)
+
+        private bool CheckIfThereIsSometrrAlive()
+        {
+            bool sign = false;
+            foreach (Terrorist trr in this.TrrOrg.TerroristsMembers)
+            {
+                if (trr.Status)
+                {
+                    sign = true;
+                    break;
+                }
+            }
+            return sign;
+        }
+
+        public Report CreateRandoValuesReport()
         {
             Random Rand = new Random();
 
-            Terrorist trr = trrOrg.TerroristsMembers[Rand.Next(trrOrg.TerroristsMembers.Count)];
+            bool SometrrAlive = CheckIfThereIsSometrrAlive();
+
+            if (!SometrrAlive)
+            {
+                throw new Exception(" There Are Not Terrorist Alive");
+            }
+
+            Terrorist trr = this.TrrOrg.TerroristsMembers[Rand.Next(this.TrrOrg.TerroristsMembers.Count)];
+
             string place = Data.Places[Rand.Next(Data.Places.Count)];
             Report report = new Report(trr, place);
             reports.Add(report);
