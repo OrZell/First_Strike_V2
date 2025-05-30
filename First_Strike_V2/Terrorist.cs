@@ -30,12 +30,12 @@
             set { _Weapons = value; }
         }
 
-        public Terrorist(string name, int rank)
+        public Terrorist(string name, int rank, List<string> weapns)
         {
             this._Name = name;
             this._Rank = rank;
+            this._Weapons = weapns;
             this._Status = true;
-            this._Weapons = new List<string>();
         }
 
         public string Info()
