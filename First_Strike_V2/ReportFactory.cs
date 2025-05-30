@@ -1,4 +1,4 @@
-﻿namespace First_Strike_V2.Models.Models
+﻿namespace First_Strike_V2.Models
 {
     public class ReportFactory
     {
