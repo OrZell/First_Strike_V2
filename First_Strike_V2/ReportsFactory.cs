@@ -10,7 +10,12 @@
 
         public Report CreateRandoValuesReport(TerrorOrganization trrOrg)
         {
-            Report report;
+            Random Rand = new Random();
+
+            Terrorist trr = trrOrg.TerroristsMembers[Rand.Next(trrOrg.TerroristsMembers.Count)];
+            string place = Data.Places[Rand.Next(Data.Places.Count)];
+            Report report = new Report(trr, place);
+            reports.Add(report);
             return report;
         }
     }
