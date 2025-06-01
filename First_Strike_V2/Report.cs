@@ -12,5 +12,14 @@
             this.Place = place;
             this.DateAndTime = DateTime.Now;
         }
+
+        public string Print()
+        {
+            string result = "" +
+                $"Terrorist: {this.TerroristPerson.Print()}\n" +
+                $"Place: {this.Place}\n" +
+                $"Date: {this.DateAndTime.ToString()}";
+            return result;
+        }
     }
 }

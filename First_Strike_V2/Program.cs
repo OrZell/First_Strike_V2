@@ -8,8 +8,8 @@ namespace First_Strike_V2
         {
 
             Initialization.Init();
-            Console.WriteLine(Initialization.aman.Reports);
-
+            Console.WriteLine(Initialization.aman.PrintReports());
+            Console.WriteLine(Initialization.Hamas.PrintMembers());
         }
     }
 }

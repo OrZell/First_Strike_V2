@@ -26,11 +26,22 @@
         public TerrorOrganization(string date)
         {
             this._Date = date;
+            this._TerroristsMembers = new List<Terrorist>();
         }
 
         public void AddMember(Terrorist trr)
         {
             this._TerroristsMembers.Add(trr);
+        }
+
+        public string PrintMembers()
+        {
+            string result = "";
+            foreach (Terrorist trr in this._TerroristsMembers)
+            {
+                result += trr.Print() + "\n\n";
+            }
+            return result;
         }
     }
 }
