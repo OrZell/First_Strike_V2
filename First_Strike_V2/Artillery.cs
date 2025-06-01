@@ -2,20 +2,18 @@
 
 namespace First_Strike_V2
 {
-    public class FighterJet : StrikeOptions
+    public class Artillery : StrikeOptions
     {
-        public List<string> BombType;
+        public string BombType;
         public string EffectiveAgainst;
-        public string Pilot { get; set; }
 
-        public FighterJet() : base()
+        public Artillery() : base()
         {
-            Name = "F-16";
-            AmmunitionCapacity = 8;
+            Name = "M109";
+            AmmunitionCapacity = 40;
             Fuel = 100;
-            EffectiveAgainst = "buildings";
-            BombType = new List<string> { "0.5 Ton", "1 Ton" };
-            Pilot = "Or Zelinger";
+            EffectiveAgainst = "open areas";
+            BombType = "explosive shells";
         }
 
         public override string StrikeLog(Report report)
@@ -39,7 +37,7 @@ namespace First_Strike_V2
 
         public override int Reload(Army army)
         {
-            int maxCapacity = 8;
+            int maxCapacity = 40;
             int ammoNeeded = maxCapacity - AmmunitionCapacity;
 
             if (army.AmmunitionStock < ammoNeeded)
@@ -52,6 +50,7 @@ namespace First_Strike_V2
 
             return AmmunitionCapacity;
         }
+
 
         public override float Refuel(Army army)
         {
@@ -70,4 +69,3 @@ namespace First_Strike_V2
         }
     }
 }
-
