@@ -1,9 +1,14 @@
-﻿namespace First_Strike_V2
+﻿using First_Strike_V2.Models;
+
+namespace First_Strike_V2
 {
     public class Program
     {
-        public void Main(string[] args)
+        public static void Main(string[] args)
         {
+
+            Initialization.Init();
+            Console.WriteLine(Initialization.aman.Reports);
 
         }
     }
