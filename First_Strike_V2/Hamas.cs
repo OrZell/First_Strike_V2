@@ -27,5 +27,10 @@
         {
             this._Date = date;
         }
+
+        public void AddMember(Terrorist trr)
+        {
+            this._TerroristsMembers.Add(trr);
+        }
     }
 }
