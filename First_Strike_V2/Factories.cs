@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace First_Strike_V2
+namespace First_Strike_V2.Models
 {
     public static class ArmyFactory
     {
-        public static Army CreateIDF()
-        {
-            return IDF.Case;
-        }
+        //public static Army CreateIDF()
+        //{
+        //    return IDF.CreateIDF();
+        //}
     }
 
     interface ICreateStrikeOption

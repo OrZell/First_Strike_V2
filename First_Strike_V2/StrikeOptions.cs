@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace First_Strike_V2
+namespace First_Strike_V2.Models
 {
-    public class StrikeOptions : IStrikeOperations
+    public class StrikeOptions
     {
         public string Name;
         public int AmmunitionCapacity;
@@ -15,7 +15,7 @@ namespace First_Strike_V2
             Fuel = 0;
         }
 
-        public virtual string StrikeLog(Terrorist terrorist)
+        public string StrikeLog(Terrorist terrorist)
         {
             if (AmmunitionCapacity == 0)
             {
@@ -34,7 +34,7 @@ namespace First_Strike_V2
             }
         }
 
-        public virtual int Reload(Army army)
+        public int Reload(Army army)
         {
             int maxCapacity = 0;
             int ammoNeeded = maxCapacity - AmmunitionCapacity;
@@ -50,7 +50,7 @@ namespace First_Strike_V2
             return AmmunitionCapacity;
         }
 
-        public virtual float Refuel(Army army)
+        public float Refuel(Army army)
         {
             float currentCapacity = Fuel;
             if (army.FuelDepot < 100)

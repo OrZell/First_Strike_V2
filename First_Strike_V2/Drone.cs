@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace First_Strike_V2
+namespace First_Strike_V2.Models
 {
 	public class Drone : StrikeOptions
 	{
@@ -15,7 +15,7 @@ namespace First_Strike_V2
             EffectiveAgainst = new List<string>{ "Personnel", "Vehicles" };
             BombType = new List<string> { "Targeted Strike", "Armor Peircing" };
         }
-        public override string StrikeLog(Report report)
+        public string StrikeLog(Report report)
         {
             if (AmmunitionCapacity == 0)
             {
@@ -29,12 +29,12 @@ namespace First_Strike_V2
             {
                 AmmunitionCapacity -= 1;
                 Fuel -= 25;
-                string strikeLog = $"{TerroristPerson} attacked target using {BombType}!";
+                string strikeLog = $"{report.TerroristPerson} attacked target using {BombType}!";
                 return strikeLog;
             }
         }
 
-        public override int Reload(Army army)
+        public int Reload(Army army)
         {
             int maxCapacity = 3;
             int ammoNeeded = maxCapacity - AmmunitionCapacity;
@@ -51,7 +51,7 @@ namespace First_Strike_V2
         }
 
 
-        public override float Refuel(Army army)
+        public float Refuel(Army army)
         {
             float currentCapacity = Fuel;
             if (army.FuelDepot < 100)
