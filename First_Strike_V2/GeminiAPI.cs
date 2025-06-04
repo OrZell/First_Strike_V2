@@ -15,7 +15,7 @@ namespace First_Strike_V2.Models
             this._apiKey = apiKey;
         }
 
-        public async Task<string> requent(string prompt)
+        public async Task<string> Request(string prompt)
         {
             var body = new
             {
