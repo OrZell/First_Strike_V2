@@ -12,6 +12,7 @@
         {
             this.Reports = new List<Report>();
             this.TerroristsAndReports = new Dictionary<Terrorist, List<Report>>();
+            this.TerroristsAndReportsNums = new Dictionary<Terrorist, int>();
             this.TrrOrg = trrOrg;
             this.RepFactor = new ReportFactory(this.TrrOrg);
         }
@@ -62,6 +63,16 @@
             }
             this.TerroristsAndReports[report.TerroristPerson].Add(report);
             this.TerroristsAndReportsNums[report.TerroristPerson]++;
+        }
+
+        public string PrintReports()
+        {
+            string result = "";
+            foreach (Report report in this.Reports)
+            {
+                result += report.Print() + "\n\n";
+            }
+            return result;
         }
     }
 }

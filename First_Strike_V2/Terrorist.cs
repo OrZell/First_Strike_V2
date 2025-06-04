@@ -38,12 +38,30 @@
             this._Status = true;
         }
 
-        public string Info()
+        private string PrirntGuns()
+        {
+            string result = "\n";
+            for (int i = 0; i < this.Weapons.Count; i++)
+            {
+                if (i <this.Weapons.Count-1)
+                {
+                    result = result + "    " + this.Weapons[i] + "\n";
+                }
+                else
+                {
+                    result = result + "    " + this.Weapons[i];
+                }
+            }
+            return result;
+        }
+
+        public string Print()
         {
             return $"" +
                 $"Name: {this.Name}\n" +
                 $"Rank: {this.Rank}\n" +
-                $"Status: {this.Status}";
+                $"Status: {this.Status}\n" +
+                $"Weapons: {this.PrirntGuns()}";
         }
     }
 }
