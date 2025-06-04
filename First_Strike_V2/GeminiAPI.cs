@@ -15,16 +15,15 @@ namespace First_Strike_V2.Models
         public GeminiAPI(string apiKey)
         {
             this._HttpClient = new HttpClient();
+            this._HttpClient.BaseAddress = new Uri($"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={apiKey}");
             this._apiKey = apiKey;
         }
 
         public async Task<string> requent(string prompt)
         {
-            string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={_apiKey}";
-
             var body = new
             {
-                content = new[]
+                contents = new[]
                 {
                     new
                     {
@@ -37,10 +36,9 @@ namespace First_Strike_V2.Models
             };
 
             var json = JsonSerializer.Serialize(body);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var contant = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await _HttpClient.PostAsync(url, content);
-            response.EnsureSuccessStatusCode();
+            var response = await _HttpClient.PostAsync(this._HttpClient.BaseAddress, contant);
 
             return await response.Content.ReadAsStringAsync();
         }
