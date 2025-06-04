@@ -6,19 +6,7 @@ namespace First_Strike_V2.Models
 {
     public class IDF : Army
     {
-        private static IDF _case;
-
-        //public static IDF Case
-        //{
-        //    get
-        //    {
-        //        if (_case == null)
-        //        {
-        //            _case = new IDF( "1948-05-26",  "Lt. Gen. Herzl Halevi", new List<StrikeOptions>(), new Aman(), 1000, 5000);
-        //        }
-        //        return _case;
-        //    }
-        //}
+        private static IDF? _case;
 
         public static IDF CreateIDF(Aman aman)
         {

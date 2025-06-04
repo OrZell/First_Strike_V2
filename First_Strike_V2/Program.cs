@@ -13,7 +13,7 @@ namespace First_Strike_V2
 
             string key = Console.ReadLine()!;
             GeminiAPI gym = new GeminiAPI(key);
-            Console.WriteLine( await gym.Request("Give me 5 items like {{name: string name of arab man}, {rank: integer between 1 to 5}, {weapons: {randon many items from this array [AK47, M16, Gun, Knife]}}} and dont say anything else"));
+            Console.WriteLine( await gym.Request("Give me 5 items like {{name: string name of arab man without any charters in it}, {rank: integer between 1 to 5}, {weapons: {randon many items from this array [AK47, M16, Gun, Knife]}}} and dont say anything else"));
         }
     }
 }
