@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace First_Strike_V2
+﻿namespace First_Strike_V2.Models
 {
     public class Army
     {
